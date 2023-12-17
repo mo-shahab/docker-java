@@ -6,10 +6,10 @@ FROM httpd:latest
 #Author of the Docker File
 # MAINTAINER Pictolearn Note: MAINTAINER has been deprecated for LABEL, 
 # LABEL is a key value pair
-LABEL "Maintainer"="Pictolearn"
+LABEL "Maintainer"="moshahab"
 
 # Copy the following directory
-COPY pictolearn-sample/ /usr/local/apache2/htdocs/pictolearn
+COPY moshahab-sample/ /usr/local/apache2/htdocs/moshahab
 
 # Copy httpd.conf with changes to the root directory
 COPY httpd.conf /usr/local/apache2/conf
