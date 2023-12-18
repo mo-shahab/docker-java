@@ -19,4 +19,4 @@ an important thing to note, in the usecase no 5 ( in the repo as ->
    but this would bring in conflicts with our intentions, the other docker file has tomcat 9 and jdk 9
 
 the stuff that i refered to had, was working with lot of outdated dependencies, so the changes
-
+refer: https://github.com/pictolearn/docker-tutorial
