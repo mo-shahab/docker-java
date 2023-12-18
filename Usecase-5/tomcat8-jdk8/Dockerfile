@@ -4,11 +4,14 @@
 FROM ubuntu:16.04
 
 #Author of the file
-MAINTAINER pictolearn
+# LABEL is a key value pair 
+LABEL "Maintainer"="moshahab"
+
+### HERE IS A CHANGE, IN THE VERSIONING OF THE TOMCAT this one is for the tomcat 9
 
 #Download the latest version of 8.5.x
 # Verify the version exists here or else change it: http://apache.mirrors.tds.net/tomcat/tomcat-8/
-ENV TOMCAT_VERSION 8.5.42
+ENV TOMCAT_VERSION 9.0.84
 
 # Run an update to get all the security patches
 RUN apt-get update && apt-get -y upgrade
@@ -30,15 +33,15 @@ RUN apt-get -y install curl vim wget
 # RUN apt-get -y install oracle-java8-installer 
 RUN add-apt-repository ppa:openjdk-r/ppa  
 RUN apt-get update -y
-RUN apt-get install -y openjdk-8-jdk 
+RUN apt-get install -y openjdk-9-jdk 
 RUN apt-get -y install maven lsof
 
 # Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-amd64
+ENV JAVA_HOME /usr/lib/jvm/java-9-openjdk-amd64
 
 # Get Tomcat
 # notice that i can add the same RUN command across multiple lines
-RUN wget --quiet --no-cookies http://apache.mirrors.tds.net/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
+RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
 tar xzvf /tmp/tomcat.tgz -C /opt && \
 mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat && \
 rm /tmp/tomcat.tgz  && \

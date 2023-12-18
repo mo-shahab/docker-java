@@ -6,7 +6,7 @@ FROM tomcat:8.5
 #Author of the Docker File
 # MAINTAINER Pictolearn Note: MAINTAINER has been deprecated for LABEL, 
 # LABEL is a key value pair 
-LABEL "Maintainer"="Pictolearn"
+LABEL "Maintainer"="moshahab"
 
 # Copy the following directory
 COPY docker-spring-mvc.war /usr/local/tomcat/webapps/docker-spring-mvc.war

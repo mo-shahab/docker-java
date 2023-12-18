@@ -10,11 +10,13 @@ FROM ubuntu:16.04
 #Author of the Docker File
 # MAINTAINER Pictolearn Note: MAINTAINER has been deprecated for LABEL, 
 # LABEL is a key value pair 
-LABEL "Maintainer"="Pictolearn"
+LABEL "Maintainer"="moshahab"
+
+### HERE IS A CHANGE FOR THE TOMCAT VERSION, this is the tomcat 8 one ok ..
 
 #Download the latest version of 7.x
 #Verify the version exists here or else change it: http://apache.rediris.es/tomcat/tomcat-7
-ENV TOMCAT_VERSION 7.0.94
+ENV TOMCAT_VERSION 8.5.97
 
 # Run an update to get all the security patches
 RUN apt-get -y update && apt-get -y upgrade
@@ -42,13 +44,14 @@ RUN apt-get -y install curl wget vim
 # June 1, 2017: Added OPEN JDK Installation 
 RUN add-apt-repository ppa:openjdk-r/ppa  
 RUN apt-get update -y
-RUN apt-get install -y openjdk-7-jdk 
-ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
+RUN apt-get update -y && apt-get install -y openjdk-8-jre-headless
+RUN apt-get install -y openjdk-8-jdk 
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Get Tomcat
 # notice that i can add the same RUN command across multiple lines. This is done for Performance optimization
 # and does not create too many layers in the image. Use this format if you would like for better maintenance.
-RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-7/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
+RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \
 tar xzvf /tmp/tomcat.tgz -C /opt && \
 mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat && \
 rm /tmp/tomcat.tgz && \
