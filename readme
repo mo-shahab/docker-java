@@ -1,3 +1,6 @@
+going public, the eclipse native code needs to be more generic, help me with
+that
+
 an important thing to note, in the usecase 5
  - the tommcat version is one upped, for tomcat 7 its 8 and for tomcat 8 its 9
  - same with the jdk's too, jdk 7 was supposed to be built on tomcat 7 but jdk7 was not an
@@ -5,3 +8,4 @@ an important thing to note, in the usecase 5
    but this would bring in conflicts with our intentions, the other docker file has tomcat 9 and jdk 9
 
 the stuff that i refered to had, was working with lot of outdated dependencies, so the changes
+
