@@ -1,7 +1,18 @@
 going public, the eclipse native code needs to be more generic, help me with
 that
 
-an important thing to note, in the usecase 5
+most of the generic instances where one can use docker with java: 
+ - hosting containerized servers
+ - building microservices in java, using docker-compose
+ - springboot instances
+
+also:
+ - hosting httpd, using apache httpd
+ - hosting containerized nginx servers
+ - and such
+
+an important thing to note, in the usecase no 5 ( in the repo as ->
+<name-of-the-usecase> - <number-of-the-usecase)
  - the tommcat version is one upped, for tomcat 7 its 8 and for tomcat 8 its 9
  - same with the jdk's too, jdk 7 was supposed to be built on tomcat 7 but jdk7 was not an
    installation candidat for ubuntu 16, so i had to change the other docker image with jdk 8 and tomcat 8
